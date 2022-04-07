@@ -1,0 +1,188 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div style="width: 100%; padding-top: 3%; padding-bottom: 3%; background-image:url('/static/img/fees.jfif')"> 
+    <h3 class="text-center">Fees Section</h3>
+    <div class="mb-3" style="padding : 2% 7%" > 
+        <div class="wrapper">
+            <input type="radio" name="select" id="option-1" value="collage" onchange="getValue(this)">
+            <input type="radio" name="select" id="option-2" value="exam" onchange="getValue(this)">
+              <label for="option-1" class="option option-1">
+                <div class="dot"></div>
+                 <span style="padding: 5px 15px;">Collage</span>
+                 </label>
+              <label for="option-2" class="option option-2">
+                <div class="dot"></div>
+                 <span style="padding: 5px 15px;">Exam</span>
+              </label>
+        </div>
+    </div>
+    <form method="post" action="">
+        <div style="width: 50%; float: left; item-align: center; padding: 0 5%; visibility: hidden" id="divcollage">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Username">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Mobile No.</label>
+                <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter mobile No.">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Collage-ID No.</label>
+                <input <input type="text" pattern="[0-9]{6}" class="form-control" id="name" name="name" placeholder="000000">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Fees Transaction-ID</label>
+                <input <input type="text" pattern="[0-9]{12}" class="form-control" id="name" name="name" placeholder="000000000000">
+            </div>
+            
+            <div class="mb-3">
+                <div style="width: 50%;float: left; padding-right: 2%;">
+                    <div>
+                        <label for="exampleFormControlInput1" class="form-label">Department</label>
+                        <select  class="form-control" placeholder="Choose one..." >
+                            <option value=""></option>
+                            <option value="BSCIT">BSC-IT</option>
+                            <option value="BSCCS">BSC-CS</option>
+                        </select>
+                    </div>
+                    <div style="padding-top: 10%"></div>
+                    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+                    <div class="file-input-wrapper">
+                        <button class="btn-file-input">Upload File</button>
+                        <input type="file" name="file" />
+                    </div>
+                </div>
+                
+                <div style="margin-left: 50%; padding-left: 2%">
+                    <label for="exampleFormControlInput1" class="form-label">Year</label>
+                    <select  class="form-control" placeholder="Choose one...">
+                        <option value="">Choose Year...</option>
+                        <option value="first">First</option>
+                        <option value="second">Second</option>
+                        <option value="final">Final</option>
+                    </select>
+                    <div style="padding-top: 10%; padding-left: 65%">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div style="margin-left: 50%; padding: 0 5%; visibility: hidden" id="divexam"> 
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Username">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Mobile No.</label>
+                <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter mobile No.">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Collage-ID No.</label>
+                <input <input type="text" pattern="[0-9]{6}" class="form-control" id="name" name="name" placeholder="000000">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Fees Transaction-ID</label>
+                <input <input type="text" pattern="[0-9]{12}" class="form-control" id="name" name="name" placeholder="000000000000">
+            </div>
+            
+            <div class="mb-3">
+                <div style="width: 50%;float: left; padding-right: 2%">
+                    <div>
+                        <label for="exampleFormControlInput1" class="form-label">Stream</label>
+                        <select  class="form-control" placeholder="Choose one..." >
+                            <option value="">Choose Stream...</option>
+                            <option value="BSCIT">BSC-IT</option>
+                            <option value="BSCCS">BSC-CS</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="exampleFormControlInput1" class="form-label" style="padding-top: 4%">Subject-1</label>
+                        <input class="form-control" value="" id="subject1"/>
+                    </div>
+                    <div>
+                        <label for="exampleFormControlInput1" class="form-label" style="padding-top: 4%">Subject-2</label>
+                        <input class="form-control" value="" id="subject2"/>
+                    </div>
+                    <div>
+                        <label for="exampleFormControlInput1" class="form-label" style="padding-top: 4%">Subject-3</label>
+                        <input class="form-control" value="" id="subject3"/>
+                    </div>
+                    
+                    <div style="padding-top: 10%"></div>
+                    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+                    <div class="file-input-wrapper">
+                        <button class="btn-file-input">Upload File</button>
+                        <input type="file" name="file"/>
+                    </div> 
+                </div>
+                
+                <div style="margin-left: 50%; padding-left: 2%">
+                    <label for="exampleFormControlInput1" class="form-label">Year</label>
+                    <div>
+                        <select class="form-control" name="year" id="year">
+                            <option value="" selected="selected">Choose Year...</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="exampleFormControlInput1" class="form-label" style="padding-top: 4%">Subject-4</label>
+                        <input class="form-control" value="" id="subject4"/>
+                    </div>
+                    <div>
+                        <label for="exampleFormControlInput1" class="form-label" style="padding-top: 4%">Subject-5</label>
+                        <input class="form-control" value="" id="subject5"/>
+                    </div>
+                    <div>
+                        <label for="exampleFormControlInput1" class="form-label" style="padding-top: 4%">Subject-6</label>
+                        <input class="form-control" value="" id="subject6"/>
+                    </div>
+                    <div style="padding-top: 10%; padding-left: 65%">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    
+    <div style="padding: 5% 0;">
+    <div>
+</div>
+
+
+<script>
+    var subjectObject = {
+      "First": ["Maths", "Microprocessor", "Graphics", "OS","Network","OOPS"],
+      "Second":["Java", "Python", "embedded","Computing","WebProj","Netwok"], 
+      "Final": ["IOT","Cyberlaw","SIC","GIS","NGT","BI"]
+    }
+    window.onload = function() {
+        var subjectSel = document.getElementById("year");
+        for (var x in subjectObject) {
+        subjectSel.options[subjectSel.options.length] = new Option(x, x);
+        }
+        subjectSel.onchange = function() {
+            var z = subjectObject[this.value];
+            document.getElementById('subject1').value=z[0];
+            document.getElementById('subject2').value=z[1];
+            document.getElementById('subject3').value=z[2];
+            document.getElementById('subject4').value=z[3];
+            document.getElementById('subject5').value=z[4];
+            document.getElementById('subject6').value=z[5];
+            
+        }
+
+    }
+</script>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/uploadfile.css') }}"/>
+<script src="{{ url_for('static',filename='/js/fees.js')}}"></script>
+{% endblock body %}
