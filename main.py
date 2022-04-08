@@ -68,7 +68,7 @@ def CheckExam():
             for norange in result:
                 if int(lastdigit)<=norange["rollno"][1] and int(lastdigit)>norange["rollno"][0]:
                     seatlocation=norange["roomno"]
-        return render_template("exam.html",exam=0,seat=1,location=seatlocation)
+        return render_template("exam.html",exam=0,seat=1,location=seatlocation, examdetails=examtime)
     return render_template("exam.html",exam=0,seat=0,location=seatlocation,examdetails=examtime)
 
 @app.route('/FillFees', methods=['GET', 'POST'])
