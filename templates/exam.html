@@ -1,45 +1,130 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script>
-var subjectObject = {
-  "First": ["Maths", "Microprocessor", "Graphics", "OS","Network","OOPS"],
-  "Second":["Java", "Python", "embedded","Computing","WebProj","Netwok"], 
-  "Final": ["IOT","Cyberlaw","SIC","GIS","NGT","BI"]
-}
-window.onload = function() {
-  var subjectSel = document.getElementById("subject");
-  var topicSel = document.getElementById("topic");
-  for (var x in subjectObject) {
-    subjectSel.options[subjectSel.options.length] = new Option(x, x);
+{% extends 'base.html' %}
+{% block body %}
+
+<div style="width: 100%; padding-top: 3%; padding-bottom: 3%; background-image:url('/static/img/fees.jfif')"> 
+    <h3 class="text-center">Exam-Section</h3>
+    <div class="mb-3" style="padding : 2% 7%" > 
+        <div class="wrapper">
+            {%if exam==1%}
+            <input type="radio" name="select" id="option-1" value="Examdetails" onchange="getValue(this)" checked>
+            {%else%}
+            <input type="radio" name="select" id="option-1" value="Examdetails" onchange="getValue(this)">
+            {%endif%}
+            {%if seat==1%}
+            <input type="radio" name="select" id="option-2" value="Seatno" onchange="getValue(this)" checked>
+            {%else%}
+            <input type="radio" name="select" id="option-2" value="Seatno" onchange="getValue(this)">
+            {%endif%}
+              <label for="option-1" class="option option-1">
+                <div class="dot"></div>
+                 <span style="padding: 5px 15px;">Exam-Details</span>
+                 </label>
+              <label for="option-2" class="option option-2">
+                <div class="dot"></div>
+                 <span style="padding: 5px 15px;">Seat-Number</span>
+              </label>
+        </div>
+    </div>
+    <form method="post" action="/CheckExam">
+      {%if exam==1%}
+      <div style="width: 50%; float: left; item-align: center; padding: 0 5%; visibility:visible;" id="divexam">
+      {%else%}
+      <div style="width: 50%; float: left; item-align: center; padding: 0 5%; visibility:hidden;" id="divexam">
+      {%endif%}  
+          <div class="mb-3">
+              <div style="width: 50%;float: left; padding-right: 2%;">
+                  <div>
+                      <label for="exampleFormControlInput1" class="form-label">Stream</label>
+                      <select name="Examdatedept" class="form-control" placeholder="Choose one..." >
+                          <option value="">Choose Stream...</option>
+                          <option value="BSCIT">BSC-IT</option>
+                          <option value="BSCCS">BSC-CS</option>
+                      </select>
+                  </div>
+              </div>
+              <div style="margin-left: 50%; padding-left: 2%">
+                  <label for="exampleFormControlInput1" class="form-label">Year</label>
+                  <select name="Examdateyr" class="form-control" placeholder="Choose one...">
+                      <option value="">Choose Year...</option>
+                      <option value="first">First</option>
+                      <option value="second">Second</option>
+                      <option value="final">Final</option>
+                  </select>
+                  <div style="padding-top: 10%; padding-left: 65%">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+              </div>
+              {%if examdetails!=0%}
+              <div>
+                <table style="width: 100%">
+                  <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Subject</th>
+                  </tr>
+                  {%for detail in examdetails%}
+                  <tr>
+                    <td>{{detail[0]}}</td>
+                    <td>{{detail[1]}}</td>
+                    <td>{{detail[2]}}</td>
+                  </tr>
+                  {%endfor%}
+                </table>
+              </div>
+              {%endif%}
+          </div>
+      </div>
+      {%if seat==1%}
+      <div style="margin-left: 50%; padding: 0 5%; visibility: visible;" id="divseat"> 
+      {%else%}
+      <div style="margin-left: 50%; padding: 0 5%; visibility: hidden;" id="divseat">
+      {%endif%}
+          <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Exam Roll-No.</label>
+              <input name="checkseatrollno" type="text" pattern="[A-Z]{2}[0-3]{2}[0-6]{2}" class="form-control" id="name" name="name" placeholder="000000">
+          </div>
+          <div class="mb-3">
+            <div style="width: 50%;float: left; padding-right: 2%;">
+                <div>
+                    <label for="exampleFormControlInput1" class="form-label">Stream</label>
+                    <select  name="checkseatdept" class="form-control" placeholder="Choose one..." >
+                        <option value="">Choose Stream...</option>
+                        <option value="BSCIT">BSC-IT</option>
+                        <option value="BSCCS">BSC-CS</option>
+                    </select>
+                </div>
+            </div>
+            <div style="margin-left: 50%; padding-left: 2%">
+                <label for="exampleFormControlInput1" class="form-label">Year</label>
+                <select name="checkseatyr" class="form-control" placeholder="Choose one...">
+                    <option value="">Choose Year...</option>
+                    <option value="first">First</option>
+                    <option value="second">Second</option>
+                    <option value="final">Final</option>
+                </select>
+                <div style="padding-top: 10%; padding-left: 65%">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+            {%if location!=0%}
+            <div >
+              <p>Exam Location-{{location}}</p>
+            </div>
+            {%endif%}
+          </div>
+      </div>
+  </form>
+  <div style="padding: 5% 0;">
+  <div>
+</div>
+
+<style>
+  th{
+    padding: 5% 5%;
   }
-
-  subjectSel.onchange = function() {
-    topicSel.length = 1;
-    var z = subjectObject[this.value];
-    for (var i = 0; i < z.length; i++){
-        topicSel.options[topicSel.options.length] = new Option(z[i], z[i]);
-    }
+  td{
+    padding: 0 2%;
   }
-}
-</script>
-</head>   
-<body>
-
-<h1>Cascading Dropdown Example</h1>
-
-<form name="form1" id="form1" action="/action_page.php">
-Subjects: <select name="subject" id="subject">
-    <option value="" selected="selected">Select subject</option>
-  </select>
-  <br><br>
-Topics: <select name="topic" id="topic">
-    <option value="" selected="selected">Please select subject first</option>
-  </select>
-  <br><br>
-  <input type="submit" value="Submit">  
-</form>
-
-</body>
-</html>
+</style>
+<script src="{{ url_for('static',filename='/js/exam.js')}}"></script>
+{% endblock body %}

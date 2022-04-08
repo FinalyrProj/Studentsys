@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div style="background-image:url('/static/img/eventback.jfif')">
+    <div style="padding: 3% 20%;">
+        <h3 class="text-center" style="padding-top: 15px; padding-bottom: 15px; color: #ffffff; font-weight: bold;">Collage Events</h3>
+        <div class="row row-cols-1 row-cols-sm-2 g-3">
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img src="/static/img/dance1.jfif" width="100%" height="225">
+                    <div class="card-body">
+                        <p class="card-text">Collage dance compition for all students from all departments registrations starts from 10 apr to 10 may 2022. For registration please contact <br>xyz-9223454332.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img src="/static/img/hackthon.jfif" width="100%" height="225">
+                    <div class="card-body">
+                        <p class="card-text">Hackthon-2022 for all passionate coders from all departments registrations starts from 12 apr to 10 may 2022. For registration please contact <br>xyz-9223454123</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="padding-top: 20px; padding-bottom: 30px;">
+        <h3 class="text-center" style="padding-top: 15px; padding-bottom: 15px; color: #ffffff; font-weight: bold;">Departmental events - IT</h3>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img src="/static/img/deptcoding.jfif" width="100%" height="225">
+                    <div class="card-body">
+                        <p class="card-text">Departmental Coding event For Students registration are open till 15th apr. For more details please contact. <br>IT-final xyz-9754321456</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img src="/static/img/music.jfif" width="100%" height="225">
+                    <div class="card-body">
+                        <p class="card-text">Music compition for departmental students only please note, registration open till 20 apr. For more details please contact<br>IT-second xyz-9321456543</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img src="/static/img/sport.jfif" width="100%" height="225">
+                    <div class="card-body">
+                        <p class="card-text">Department sport event for IT students only, it includes indoor and outdoor sport events and registration are open till 20 apr. Please contact.<br>Sport-commitee xyz-9321456345</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{{ url_for('static',filename='/js/base.js' ) }}"></script>
+{% endblock body %}
